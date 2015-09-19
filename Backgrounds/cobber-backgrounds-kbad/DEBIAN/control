@@ -1,0 +1,10 @@
+Package: cobber-backgrounds-kbad
+Version: 0.1
+Installed-Size: 13904
+Section: misc
+Maintainer: Michael Findlay <root@cobber-linux.org>
+Homepage: http://cobber-linux.org/index.html
+Priority: optional
+Architecture: all
+Description: Cobber backgrounds package
+ These backgrounds are of various Australian landscapes and places of interest. This package contains pictures donated by kbad from Australian 4wd Action forum.
