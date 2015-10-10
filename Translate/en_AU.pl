@@ -11,7 +11,7 @@ use v5.10 ;
 ## (c) 2000 Abigail Brady
 ##     2002-2006 Bastien Nocera
 ##     2005 James A. Morrison
-#     2011-* Michael Findlay (en_AU coordinator 2011)
+#     2011-* Michael Findlay (en_AU coordinator 2011-*)
 #     2012 Markush (LinuxQuestions)
 
 ## Released under the GNU General Public Licence, either version 2
@@ -35,7 +35,7 @@ use v5.10 ;
 # en_PN         Pitcairn English
 
 ## If you find an inaccuracy in this list or any other problem with the script,
-## please let me know at: /keltoiboy/at/gmail/dot/com/ and I will adjust it accordingly.
+## please let me know at the email address listed and I will adjust it accordingly.
 
 # How to use en_AU.pl
 #
@@ -53,7 +53,7 @@ use v5.10 ;
 # translate the strings. If there are strings that can have more than one
 # meaning en_AU.pl will ask you to make a choice between the options. When the file is
 # translated it will be in the "translated" folder. After you have completed your
-# translations have them committed to through the proper channels.
+# translations have them committed through the proper channels.
 #
 # The file has since been modified further, with the help of Markush from LinuxQuestions.org forums (http://www.linuxquestions.org/questions/programming-9/modify-script-to-do-mass-file-translation-instead-of-1-file-at-a-time-4175434429/)   # and is now capable of mass translations. Place en_AU.pl in the folder with all the .po. and/or .pot files
 # click on it and allow it to run in a terminal (it must be made executable).
@@ -136,7 +136,7 @@ sub translate() {
 
       $msg_str =~ s/YEAR-MO-DA HO:MI\+ZONE/$date/;
       $msg_str =~ s/YEAR-MO-DA HO:MI\+DIST/$date/;
-      $msg_str =~ s/FULL NAME <EMAIL\@ADDRESS>/Michael Findlay <keltoiboy\@gmail.com>/;
+      $msg_str =~ s/FULL NAME <EMAIL\@ADDRESS>/Michael Findlay <translate\@cobber-linux.org>/;
       $msg_str =~ s/CHARSET/UTF-8/;
       $msg_str =~ s/ENCODING/8-bit/;
       $msg_str =~ s/LANGUAGE <LL\@li.org>/Australian English en_AU/;
@@ -180,33 +180,39 @@ sub translate() {
   do_trans("analyed", "analysed");
   do_trans("analyzer", "analyser");
   do_trans("analyzing", "analysing");
-  ##query_trans("anchor", "newsreader"); ##From Ubuntu en_AU word substitution list.
-  ##do_trans("anemia", "anaemia"); ##From Ubuntu en_AU word substitution list.
-  ##do_trans("anesthesia", "anaesthesia"); ##From Ubuntu en_AU word substitution list.
-  ##do_trans("anesthesiologist", "anesthetist"); ##From Ubuntu en_AU word substitution list.
-  ##do_trans("anesthetic", "anaesthetic"); ##From Ubuntu en_AU word substitution list.
-  ##query_trans("annex", "annexe"); ##From Ubuntu en_AU word substitution list.
+  ##query_trans("anchor", "newsreader"); ##From Ubuntu en_AU word substitution list. Commented out because it really isn't relevant and it is also a generalisation.
+  do_trans("anemia", "anaemia"); ##From Ubuntu en_AU word substitution list. Is this relevant to operating systems?
+  do_trans("anesthesia", "anaesthesia"); ##From Ubuntu en_AU word substitution list. Is this relevant to operating systems?
+  do_trans("anesthesiologist", "anesthetist"); ##From Ubuntu en_AU word substitution list. Is this relevant to operating systems?
+  do_trans("anesthetic", "anaesthetic"); ##From Ubuntu en_AU word substitution list. Is this relevant to operating systems?
+  ##query_trans("annex", "annexe"); ##From Ubuntu en_AU word substitution list. Commented out because I'm not sure this is accurate or how relevenant it is to operating systems.
   do_trans("antennas", "antenae"); ##From Ubuntu en_AU word substitution list.
-  do_trans("antialiased", "anti-aliased"); ##From Ubuntu en_AU word. substitution list.
-  ##do_trans("anymore", "any more"); ##From Ubuntu en_AU word substitution list.
-  ##do_trans("ass", "arse"); ##From Ubuntu en_AU word substitution list.
+  ##do_trans("antialiased", "anti-aliased"); ##From Ubuntu en_AU word. substitution list. Commented out because I'm not sure this is accurate
+  ##do_trans("anymore", "any more"); ##From Ubuntu en_AU word substitution list. Commented out because I'm not sure this is accurate.
+  ##do_trans("ass", "arse"); ##From Ubuntu en_AU word substitution list. Commented out because I'm not sure this is accurate or relevant to operating systems.
   do_trans("armor", "armour");
+  ##do_trans("artifact", "artefact"); ##From Ubuntu en_AU word substitution list.
   do_trans("authorization", "authorisation");
-  do_trans("authorizational", "authorisational"); ##From Ubuntu en_AU word substitution list.
+  ##do_trans("authorizational", "authorisational"); ##From Ubuntu en_AU word substitution list. Commented out because I'm not sure this is even a real word.
   do_trans("authorize", "authorise");
   do_trans("authorized", "authorised");
   do_trans("authorizing", "authorising"); ##From Ubuntu en_AU word substitution list.
-  ##do_trans("automobile", "motorcar"); ##From Ubuntu en_AU word substitution list.
+  ##do_trans("automobile", "motorcar"); ##From Ubuntu en_AU word substitution list. Commented out because I'm not sure this is accurate. I am a mechanic by trade and I use the word "automobile" but never use "motorcar" instead I would simply say "car".
   do_trans("ax", "axe");
   do_trans("axeis", "axis");  ##To correct bug created by translation from ax to axe.
 ### B ###
   do_trans("behavior","behaviour");
 ### C ###
   do_trans("caliber", "calibre");
-  query_trans("can", "bin");
+  #query_trans("can", "bin");
   do_trans("cancelation", "cancellation");
   do_trans("canceled", "cancelled");
   do_trans("canceling", "cancelling");
+  do_trans("capitalize", "capitalise");
+  do_trans("capitalization", "capitalisation");
+  do_trans("capitalizing", "capitalising");
+  query_trans("cart", "trolley"); ##From Ubuntu en_AU word substitution list. I have made this query because golf carts are not called golf trolleys.
+  query_trans("caster", "castor", "caster refers to suger, castor refers to wheel alignment"); ##From Ubuntu en_AU word substitution list.
   do_trans("catalog", "catalogue");
   do_trans("categorization", "categorisation");
   do_trans("categorize", "categorise");
@@ -219,43 +225,77 @@ sub translate() {
   ## These are less common, and the below translations are more useful, see bgo#628507.
   ##query_trans("checked", "chequered", "Refers to patterns");
   ##query_trans("check", "cheque", "Refers to a payment method");
-  query_trans("checked", "ticked", "Refers to an UI element");
-  query_trans("check", "tick", "Refers to an UI element");
+  #query_trans("checkbox", "tickbox", "Refers to an UI element");
+  #query_trans("checked", "ticked", "Refers to an UI element");
+  #query_trans("check", "tick", "Refers to an UI element");
   do_trans("cipher", "cypher");
   do_trans("color", "colour");
+  do_trans("colored", "coloured");
   do_trans("colorize", "colourise");
   do_trans("colorized", "coloured");
+  do_trans("customizable", "customisable");
   do_trans("customization", "customisation");
   do_trans("customize", "customise");
+  do_trans("customized", "customised");
   do_trans("customizing", "customising");
 ### D ###
   do_trans("daemonize", "daemonise");
   do_trans("defense", "defence");
   do_trans("deserialize", "deserialise");
+  do_trans("deserialized", "deserialised");
+  do_trans("deserializing", "deserialising");
   do_trans("dialer", "dialler");
   do_trans("dialing", "dialling");
   do_trans("dialed", "dialled");
   do_trans("dialog", "dialogue");
+  do_trans("digitize", "digitise");
   do_trans("digitized", "digitised");
+  do_trans("digitizer", "digitiser");
+  do_trans("digitizing", "digitising");
+  #query_trans("disc", "disk", "disc for CD-DVD or round objects otherwise disk");
+  do_trans("diskard", "discard");
+  do_trans("diskarded", "discarded");
+  do_trans("diskarding", "discarding");
+  do_trans("diskonnect", "disconnect");
+  do_trans("diskonnected", "disconnected");
+  do_trans("diskonnecting", "disconnecting");
+  do_trans("diskontinuous", "discontinuous");
+  do_trans("diskover", "discover");
+  do_trans("diskovery", "discovery");
+  do_trans("diskharging", "discharging");
+  do_trans("diskrete", "discrete");
 ### E ###
-##do_trans("eggplant","aubergine"); ##en_GB does this fit en_AU?
+  ##do_trans("eggplant","aubergine"); ##en_GB does this fit en_AU?
+  query_trans("earth", "ground");
+  query_trans("earth", "negative");
   do_trans("encyclopedia", "encyclopaedia");
   do_trans("endeavor", "endeavour");
   do_trans("equaled", "equalled");
   do_trans("equaling", "equalling");
+  do_trans("equalize", "equalise");
+  do_trans("equalized", "equalised");
   do_trans("equalizer", "equaliser");
+  do_trans("equalizing", "equalising");
 ### F ###
   do_trans("favor", "favour");
+  do_trans("favored", "favoured");
   do_trans("favorite", "favourite");
   do_trans("featureful", "full-featured");
   do_trans("fiber", "fibre");
   do_trans("finalize", "finalise");
+  do_trans("finalizing", "finalising");
   do_trans("flavor", "flavour");
+  do_trans("formating", "formatting");
   do_trans("fueled", "fuelled");
   do_trans("fueling", "fuelling");
 ### G ###
+  do_trans("garbage", "rubbish");
   do_trans("gray", "grey");
   do_trans("grayscale", "greyscale");
+  query_trans("ground", "earth");
+  query_trans("ground", "negative");
+  query_trans("grounded", "earthed");
+  query_trans("grounding", "earthing");
 ### H ###
   query_trans("harbor", "harbour");
   do_trans("honor", "honour");
@@ -263,7 +303,9 @@ sub translate() {
 ### I ###
   do_trans("initialize", "initialise");
   do_trans("initializing", "initialising");
+  do_trans("initialization", "initialisation");
   do_trans("initialized", "initialised");
+  do_trans("insuficient", "insufficient");
   do_trans("internationalization", "internationalisation");
   do_trans("intemization", "itemisation");
   do_trans("itemize", "itemise");
@@ -277,32 +319,43 @@ sub translate() {
   do_trans("labeled", "labelled");
   do_trans("license", "licence"); # http://www.oxforddictionaries.com/definition/english/licence
   do_trans("licensed", "licenced");
-  do_trans("licensing", "licencing");
+  do_trans("licencing", "licensing");
   do_trans("labor", "labour");
   do_trans("liter", "litre");
   do_trans("litreal", "literal"); # Because "liter" sometimes affects other words (FIXME: bug #574576)
   do_trans("litreate", "literate");
+  do_trans("litreature", "literature");
   do_trans("localize", "localise");
   do_trans("localized", "localised");
   do_trans("localization", "localisation");
 ### M ###
+  do_trans("maintainance", "maintenance");
+  do_trans("maintanance", "maintenance");
   do_trans("maximization", "maximisation");
   do_trans("maximize", "maximise");
   do_trans("maximized", "maximised");
-  query_trans("meter", "metre" "meter refers to a measurement gauge (i.e. water meter), metre refers to measurement of length (i.e. one metre)" ); 
+  query_trans("meter", "metre", "meter refers to a measurement gauge (i.e. water meter), metre refers to measurement of length (i.e. one metre)" );
+  do_trans("metreing", "metering"); # Because "meter sometimes affects other words.
   do_trans("millimeter", "millimetre");
   do_trans("minimize", "minimise");
   do_trans("minimized", "minimised");
   do_trans("misspelled", "misspelt");
+  do_trans("mobileular", "mobile");# fix mistake made by correcting cell in cellular to mobile.
   do_trans("modeled", "modelled");
   do_trans("modeler", "modeller");
   do_trans("modeling", "modelling");
 ### N ###
   do_trans("neighbor", "neighbour");
+  do_trans("normalize", "normalise");
+  do_trans("normalizing", "normalising");
+  do_trans("normalization", "normalisation");
 ### O ###
   do_trans("occured", "occurred");
   do_trans("occurence", "occurrence");
   do_trans("offense", "offence");
+  do_trans("optimization", "optimisation");
+  do_trans("optimizations", "optimisations");
+  do_trans("optimize", "optimise");
   do_trans("optimized", "optimised");
   do_trans("optimizing", "optimising");
   do_trans("organize", "organise");
@@ -313,17 +366,19 @@ sub translate() {
 ### P ###
   do_trans("paneled", "panelled");
   do_trans("paneling", "panelling");
-  do_trans("parenthesized", "parenthesised");
-  do_trans("parenthesizing", "parenthesising");
   do_trans("personalize", "personalise");
   do_trans("personalizing", "personalising");
   do_trans("popularized", "popularised");
-  query_trans("practise","practice" "practise is a verb, practice is a noun" );
+  query_trans("practise", "practice", "practise is a verb, practice is a noun");
   do_trans("prioritize", "prioritise");
   do_trans("prioritizing", "prioritising");
 ### Q ###
 ###R ###
   do_trans("randomize", "randomise");
+  do_trans("realize", "realise");
+  do_trans("realized", "realised");
+  do_trans("realizing", "realising");
+  do_trans("realization", "realisation");
   do_trans("recognize", "recognise");
   do_trans("rumor", "rumour");
 ### S ###
@@ -340,6 +395,7 @@ sub translate() {
   do_trans("stickyness", "stickiness");
   do_trans("sulfur", "sulphur");
   do_trans("summarize", "summarise");
+  do_trans("syncronize", "synchronise");
   do_trans("synchronization", "synchronisation");
   do_trans("synchronize", "synchronise");
   do_trans("synchronized", "synchronised");
@@ -351,7 +407,7 @@ sub translate() {
   do_trans("totaled", "totalled");
   do_trans("totaler", "totaller");
   do_trans("totaling", "totalling");
-  do_trans("translator_credits", "Michael Findlay <keltoiboy\at\gmail\dot\com>");
+  do_trans("translator_credits", "Michael Findlay <translate\@cobber-linux.org>");
   do_trans("trash", "rubbish");
   do_trans("tunneling", "tunnelling");
 ### U ###
@@ -369,9 +425,13 @@ sub translate() {
 ### V ###
   do_trans("vapor", "vapour");
   do_trans("vise", "vice");
+  do_trans("visualize", "visualise");
+  do_trans("visualized", "visualised");
   do_trans("visualization", "visualisation");
+  do_trans("visualizing", "visualising");
 ### W ###
   do_trans("wastebasket", "rubbish bin");
+  do_trans("writting", "writing");
 ### X ###
 ### Y ###
 ### Z ###
