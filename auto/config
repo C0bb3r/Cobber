@@ -43,9 +43,9 @@ lb config noauto \
 	--cache-packages "${_T}" \
 	--cache-stages "bootstrap chroot" \
 	--checksums "md5 sha1 sha256" \
-  --chroot-filesystem "squashfs" \
-  --debconf-frontend "dialog" \
-  --debconf-priority "low" \
+  	--chroot-filesystem "squashfs" \
+  	--debconf-frontend "dialog" \
+  	--debconf-priority "low" \
 	--debian-installer "live" \
 	--distribution "${_DD}" \
 	--debian-installer-distribution "${_DD}" \
@@ -63,7 +63,7 @@ lb config noauto \
 	--iso-publisher "Cobber GNU/Linux" \
 	--iso-volume "Cobber "${_DE}" "${_BIT}" $(date +%Y%m%d)" \
 	--linux-flavours "${_FL}" \
-  --linux-packages "linux-image" \
+  	--linux-packages "linux-image" \
 	--mirror-binary "${_MB}" \
 	--mirror-bootstrap "${_MB}" \
 	--mirror-debian-installer "${_MB}" \
