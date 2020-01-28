@@ -1,0 +1,84 @@
+#!/bin/sh
+
+set -e
+
+#_A="amd64" \ CPU Architecture i386 = 32 BIT (686 and 686-pae) amd64 = 64 BIT
+_A="amd64" \
+#_AA="main contrib non-free" \ Archive Areas must have at least main, contrib and non-free are optional
+_AA="main contrib non-free" \
+#_BIT="x86-64" \ x86 = 32 BIT system x86-64 = 64 BIT system
+_BIT="x86-64" \
+#_DD="buster" \ Debian Distribution e.g. buster
+_DD="buster" \
+#_F="false" \ When the answer to a question is false
+_F="false" \
+#_FL="amd64" \ Linux Flavour as in BIT. Options (currently) are 686 686-pae amd64. Flavor MUST match _A="" (CPU Architecture) to work
+_FL="amd64" \
+#_MB="http://deb.debian.org/debian/" \ Repository Mirror to be used
+_MB="http://deb.debian.org/debian/" \
+#_MS="http://security.debian.org/" \ Security Repository Mirror, this is usually always http://security.debian.org/ unless you are building a non Debian system
+_MS="http://security.debian.org/" \
+#_T="true" \ When the answer to a question is true
+_T="true" \
+#_DE="builder-choice" \ Desktop Environment or Window Manager used in the build. Choices are Cinnamon, Gnome, KDE, LXDE, LXQT, Mate, TDE (Trinity), XFCE, etc etc etc.
+_DE="Mate" \
+
+lb config noauto \
+	--apt "apt" \
+	--apt-indices "${_F}" \
+	--apt-options "--yes" \
+	--apt-recommends "${_T}" \
+	--apt-secure "${_T}" \
+	--apt-source-archives "${_F}" \
+	--aptitude-options "--assume-yes" \
+	--architectures "${_A}" \
+	--archive-areas "${_AA}" \
+	--backports "${_F}" \
+	--binary-filesystem "fat32" \
+	--bootappend-live "boot=live config quiet splash locales=en_AU en_AU.UTF-8 keyboard-layouts=us" \
+	--bootappend-live-failsafe "boot=live components memtest noapic noapm nodma nomce nolapic nomodeset nosmp nosplash vga=normal" \
+	--bootloaders "syslinux, grub-efi" \
+	--cache "${_T}" \
+	--cache-indices "${_F}" \
+	--cache-packages "${_T}" \
+	--cache-stages "bootstrap chroot" \
+	--checksums "md5 sha1 sha256" \
+  --chroot-filesystem "squashfs" \
+  --debconf-frontend "dialog" \
+  --debconf-priority "low" \
+	--debian-installer "live" \
+	--distribution "${_DD}" \
+	--debian-installer-distribution "${_DD}" \
+	--debian-installer-gui "${_T}" \
+	--fdisk "fdisk" \
+	--firmware-binary "${_T}" \
+	--firmware-chroot "${_F}" \
+	--gzip-options "-6 --rsyncable" \
+	--hdd-label "CobberLive" \
+	--initramfs "live-boot" \
+	--initramfs-compression "gzip" \
+	--interactive "${_F}" \
+	--iso-application "Cobber-Live-"${_DE}"" \
+	--iso-preparer "Michael" \
+	--iso-publisher "Cobber GNU/Linux" \
+	--iso-volume "Cobber "${_DE}" "${_BIT}" $(date +%Y%m%d)" \
+	--linux-flavours "${_FL}" \
+  --linux-packages "linux-image" \
+	--mirror-binary "${_MB}" \
+	--mirror-bootstrap "${_MB}" \
+	--mirror-debian-installer "${_MB}" \
+	--parent-mirror-binary-security "${_MS}" \
+	--parent-mirror-bootstrap "${_MB}" \
+	--parent-mirror-chroot-security "${_MS}" \
+	--quiet "${_F}" \
+	--security "${_T}" \
+	--source "${_F}" \
+	--source-images "${_F}" \
+	--system "live" \
+	--tasksel "apt" \
+	--uefi-secure-boot "enable" \
+	--updates "${_T}" \
+	--verbose "${_T}" \
+	--win32-loader "${_F}" \
+	--zsync "${_T}" \
+"${@}"
